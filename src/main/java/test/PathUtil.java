@@ -1,13 +1,24 @@
 package test;
 
+import com.liby.bytecode.ClassFileAnalysisMain;
+
 import java.io.File;
 
 public class PathUtil {
 
     public static String getClassPathStr() {
         String pkgName = RecursionAlgorithm.class.getPackage().getName();
+        System.out.println("pkgName: " + pkgName);
         String path = RecursionAlgorithm.class.getClassLoader().getResource(pkgName).getPath();
-        return path + File.separator + RecursionAlgorithm.class.getSimpleName() + ".class";
+        String fullPath = path + File.separator + RecursionAlgorithm.class.getSimpleName() + ".class";
+        System.out.println("fullPath: " + fullPath);
+        return fullPath;
+    }
+
+    public static void main(String[] args) {
+        String name = ClassFileAnalysisMain.class.getPackage().getName();
+        System.out.println("name: " + name);
+        getClassPathStr();
     }
 
 }

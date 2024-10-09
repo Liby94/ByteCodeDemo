@@ -8,7 +8,7 @@ public class U2 {
         value = new byte[]{b1, b2};
     }
 
-    public Integer toInt() {
+    public int toInt() {
         return (value[0] & 0xff) << 8 | (value[1] & 0xff);
     }
 

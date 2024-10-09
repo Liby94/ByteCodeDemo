@@ -14,6 +14,7 @@ public class ClassFileAnalysiser {
             new ArrayList<>();
 
     static {
+        handlers.add(new InterfacesHandler());
         handlers.add(new ThisAndSuperHandler());
         handlers.add(new ConstantPoolHandler());
         handlers.add(new AccessFlagHandler());

@@ -1,6 +1,8 @@
 package test;
 
-public class RecursionAlgorithm {
+import java.util.function.Consumer;
+
+public class RecursionAlgorithm implements Consumer<String> {
 
     private static volatile int value = 0;
 
@@ -14,5 +16,10 @@ public class RecursionAlgorithm {
         new Thread(() -> sigma(1)).start();
         System.in.read();
         System.out.println(value);
+    }
+
+    @Override
+    public void accept(String s) {
+
     }
 }
