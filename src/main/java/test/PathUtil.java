@@ -15,6 +15,15 @@ public class PathUtil {
         return fullPath;
     }
 
+    public static String getBuilderClassPath() {
+        String pkgName = Builder.class.getPackage().getName();
+        System.out.println("pkgName: " + pkgName);
+        String path = Builder.class.getClassLoader().getResource(pkgName).getPath();
+        String fullPath = path + File.separator + Builder.class.getSimpleName() + ".class";
+        System.out.println("fullPath: " + fullPath);
+        return fullPath;
+    }
+
     public static void main(String[] args) {
         String name = ClassFileAnalysisMain.class.getPackage().getName();
         System.out.println("name: " + name);
