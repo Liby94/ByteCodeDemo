@@ -14,6 +14,7 @@ public class ClassFileAnalysiser {
             new ArrayList<>();
 
     static {
+        handlers.add(new AttributesHandler());
         handlers.add(new MethodHandler());
         handlers.add(new FieldHandler());
         handlers.add(new InterfacesHandler());
