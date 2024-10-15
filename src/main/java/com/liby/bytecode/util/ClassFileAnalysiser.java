@@ -33,6 +33,7 @@ public class ClassFileAnalysiser {
         for (BaseByteCodeHandler handler: handlers) {
             handler.read(codeBuf, classFile);
         }
+        System.out.println("class文件结构解析完成,剩余未解析字节数:" + codeBuf.remaining());
         return classFile;
     }
 

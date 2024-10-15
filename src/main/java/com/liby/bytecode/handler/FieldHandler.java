@@ -41,12 +41,16 @@ public class FieldHandler implements BaseByteCodeHandler {
             }
             fieldInfos[i].setAttributes(new AttributeInfo[attr_len]);
             for (int j = 0; j < attr_len; j++) {
+                fieldInfos[i].getAttributes()[j] = new AttributeInfo();
                 // 解析字段的属性
                 fieldInfos[i].getAttributes()[j].setAttribute_name_index(
                         new U2(codeBuf.get(), codeBuf.get()));
                 // 获取属性info的长度
                 U4 attr_info_len = new U4(codeBuf.get(), codeBuf.get(), codeBuf.get(), codeBuf.get());
-                fieldInfos[j].getAttributes()[j].setAttribute_length(attr_info_len);
+                fieldInfos[i].getAttributes()[j].setAttribute_length(attr_info_len);
+                if (attr_info_len.toInt() == 0) {
+                    continue;
+                }
                 // 解析info
                 byte[] info = new byte[attr_info_len.toInt()];
                 codeBuf.get(info, 0, attr_info_len.toInt());
