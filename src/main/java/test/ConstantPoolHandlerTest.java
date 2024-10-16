@@ -12,13 +12,13 @@ public class ConstantPoolHandlerTest {
 
 
     public static void main(String[] args) throws Exception{
-        System.out.println(RecursionAlgorithm.class.getName());
-        String name = RecursionAlgorithm.class.getPackage().getName();
+        System.out.println(RecursionAlgorithmMain.class.getName());
+        String name = RecursionAlgorithmMain.class.getPackage().getName();
         System.out.println(name);
-        String path = RecursionAlgorithm.class.getClassLoader().getResource(name).getPath();
+        String path = RecursionAlgorithmMain.class.getClassLoader().getResource(name).getPath();
         System.out.println(path);
         ByteBuffer byteBuffer = ClassFileAnalysisMain.readFile(path +
-                File.separator + RecursionAlgorithm.class.getSimpleName() + ".class");
+                File.separator + RecursionAlgorithmMain.class.getSimpleName() + ".class");
         ClassFile classFile = ClassFileAnalysiser.analysis(byteBuffer);
 
         int cp_info_count = classFile.getConstant_pool_count().toInt();

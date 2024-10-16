@@ -11,7 +11,7 @@ public class PathUtil {
     private static final String CLASS_STR = ".class";
 
     public static String getClassPathStr() {
-        return getClassPath(RecursionAlgorithm.class);
+        return getClassPath(RecursionAlgorithmMain.class);
     }
 
     public static String getBuilderClassPath() {

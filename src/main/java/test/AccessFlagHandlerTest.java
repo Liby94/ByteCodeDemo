@@ -12,11 +12,11 @@ import java.nio.ByteBuffer;
 public class AccessFlagHandlerTest {
 
     public static void main(String[] args) throws Exception {
-        String pkgName = RecursionAlgorithm.class.getPackage().getName();
-        String path = RecursionAlgorithm.class.getClassLoader().getResource(pkgName).getPath();
+        String pkgName = RecursionAlgorithmMain.class.getPackage().getName();
+        String path = RecursionAlgorithmMain.class.getClassLoader().getResource(pkgName).getPath();
 
         ByteBuffer byteBuffer = ClassFileAnalysisMain.readFile(path
-                + File.separator + RecursionAlgorithm.class.getSimpleName() + ".class");
+                + File.separator + RecursionAlgorithmMain.class.getSimpleName() + ".class");
         ClassFile classFile = ClassFileAnalysiser.analysis(byteBuffer);
         // 获取访问标志
         U2 accessFlags = classFile.getAccess_flags();
